@@ -1,5 +1,26 @@
 import streamlit as st
 import controllers.methods as methods
+from sympy import sympify
+import numpy as np
+
+def display_home():
+    st.write("""
+            Selamat datang di dashboard metode mencari akar. Pilih metode yang ingin Anda gunakan dari menu di sebelah kiri.
+            Dashboard ini dibuat oleh Kelompok 1 untuk memenuhi tugas mata kuliah Rekayasa Komputasional
+            """)
+    
+    # st.image("/assets/homepage-photo.jpg", caption="Metode Mencari Akar", use_container_width=True)
+    
+    st.markdown(
+        """
+        ### Metode yang Tersedia:
+        - Bisection
+        - Regula Falsi
+        - Iterasi Sederhana
+        - Newton Raphson
+        - Secant
+        """
+    )
 
 def display_bisection():
     st.subheader("Metode Bisection")
@@ -13,7 +34,8 @@ def display_bisection():
     b = st.number_input("Masukkan nilai b:", value=5.0)
     
     # Input for error tolerance
-    e = st.number_input("Masukkan toleransi kesalahan (e):", value=0.01)
+    e = st.text_input("Masukkan toleransi kesalahan (e):", value=0.01)
+    e = np.float64(e)
     
     hasil = st.empty()
     
@@ -33,7 +55,8 @@ def display_regula_falsi():
     b = st.number_input("Masukkan nilai b:", value=5.0)
     
     # Input for error tolerance
-    e = st.number_input("Masukkan toleransi kesalahan (e):", value=0.01)
+    e = st.text_input("Masukkan toleransi kesalahan (e):", value=0.01)
+    e = np.float64(e)
     
     hasil = st.empty()
     
@@ -62,7 +85,8 @@ def display_iterasi_sederhana():
     
     x_initial = st.number_input("Masukkan nilai x awal:", value=0.0)
     max_iter = st.number_input("Masukkan jumlah iterasi maksimum:", value=100)
-    e = st.number_input("Masukkan toleransi kesalahan (e):", value=0.01)
+    e = st.text_input("Masukkan toleransi kesalahan (e):", value=0.01)
+    e = np.float64(e)
     
     cols = st.empty()
     
@@ -80,7 +104,43 @@ def display_iterasi_sederhana():
             col3.metric(f"Hasil Akar (x = (x^2 - 3) / 2)", result3, border=True)
 
 def display_newton_raphson():
-    pass
+    st.subheader("Metode Newton Raphson")
+    st.write("Metode Newton Raphson adalah metode numerik untuk mencari akar dari fungsi dengan cara menggunakan turunan fungsi.")
+    
+    # Input for function
+    f_x = st.text_input("Masukkan fungsi (dalam x):", "x - exp(-x)")
+    f_x = sympify(f_x)
+    
+    # Input for initial guess
+    x0 = st.number_input("Masukkan nilai x awal:", value=0.0)
+    
+    # Input for error tolerance
+    e = st.text_input("Masukkan toleransi kesalahan (e):", value=0.00001)
+    e = np.float64(e)
+    
+    hasil = st.empty()
+    
+    if st.button("Hitung"):
+        result = methods.newton_raphson(x0, f_x, e)
+        hasil.write(f"Hasil Akar : {result}")
 
 def display_secant():
-    pass
+    st.subheader("Metode Secant")
+    st.write("Metode Secant adalah metode numerik untuk mencari akar dari fungsi dengan cara menggunakan dua titik pada grafik fungsi.")
+    
+    # Input for function
+    f_x = st.text_input("Masukkan fungsi (dalam x):", "x**2 - 4")
+    
+    # Input for initial guesses
+    x0 = st.number_input("Masukkan nilai x0:", value=0.0)
+    x1 = st.number_input("Masukkan nilai x1:", value=5.0)
+    
+    # Input for error tolerance
+    e = st.text_input("Masukkan toleransi kesalahan (e):", value=0.01)
+    e = np.float64(e)
+    
+    hasil = st.empty()
+    
+    if st.button("Hitung"):
+        result = methods.secant(x0, x1, f_x, e)
+        hasil.write(f"Hasil Akar : {result}")

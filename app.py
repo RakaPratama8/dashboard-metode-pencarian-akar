@@ -10,17 +10,19 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.header("Dashboard Metode Mencari Akar - Kelompok 1")
+st.title("Dashboard Metode Mencari Akar")
 
 with st.sidebar:
     st.title("Menu")
     SELECTION = st.selectbox(
         "Pilih Metode",
-        ("Bisection", "Regula Falsi", "Iterasi Sederhana", "Newton Raphson", "Secant")
+        ("Homepage", "Bisection", "Regula Falsi", "Iterasi Sederhana", "Newton Raphson", "Secant")
     )
 
 with st.container():
-    if SELECTION == "Bisection":
+    if SELECTION == "Homepage":
+        views.display_home()
+    elif SELECTION == "Bisection":
         views.display_bisection()
     elif SELECTION == "Regula Falsi":
         views.display_regula_falsi()
