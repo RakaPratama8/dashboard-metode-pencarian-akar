@@ -30,11 +30,13 @@ def display_bisection():
     func = st.text_input("Masukkan fungsi (dalam x):", "x**2 - 4")
     
     # Input for interval
-    a = st.number_input("Masukkan nilai a:", value=0.0)
-    b = st.number_input("Masukkan nilai b:", value=5.0)
+    a = st.text_input("Masukkan nilai a:", value="0.0")
+    a = np.float64(a)
+    b = st.text_input("Masukkan nilai b:", value="5.0")
+    b = np.float64(b)
     
     # Input for error tolerance
-    e = st.text_input("Masukkan toleransi kesalahan (e):", value=0.01)
+    e = st.text_input("Masukkan toleransi kesalahan (e):", value="0.01")
     e = np.float64(e)
     
     hasil = st.empty()
@@ -51,11 +53,13 @@ def display_regula_falsi():
     f_x = st.text_input("Masukkan fungsi (dalam x):", "x**2 - 4")
     
     # Input for interval
-    a = st.number_input("Masukkan nilai a:", value=0.0)
-    b = st.number_input("Masukkan nilai b:", value=5.0)
+    a = st.text_input("Masukkan nilai a:", value="0.0")
+    a = np.float64(a)
+    b = st.text_input("Masukkan nilai b:", value="5.0")
+    b = np.float64(b)
     
     # Input for error tolerance
-    e = st.text_input("Masukkan toleransi kesalahan (e):", value=0.01)
+    e = st.text_input("Masukkan toleransi kesalahan (e):", value="0.01")
     e = np.float64(e)
     
     hasil = st.empty()
@@ -83,9 +87,11 @@ def display_iterasi_sederhana():
         """
     )
     
-    x_initial = st.number_input("Masukkan nilai x awal:", value=0.0)
-    max_iter = st.number_input("Masukkan jumlah iterasi maksimum:", value=100)
-    e = st.text_input("Masukkan toleransi kesalahan (e):", value=0.01)
+    x_initial = st.text_input("Masukkan nilai x awal:", value="0.0")
+    x_initial = np.float64(x_initial)
+    max_iter = st.text_input("Masukkan jumlah iterasi maksimum:", value="100")
+    max_iter = np.float64(max_iter)
+    e = st.text_input("Masukkan toleransi kesalahan (e):", value="0.01")
     e = np.float64(e)
     
     cols = st.empty()
@@ -112,10 +118,11 @@ def display_newton_raphson():
     f_x = sympify(f_x)
     
     # Input for initial guess
-    x0 = st.number_input("Masukkan nilai x awal:", value=0.0)
+    x0 = st.text_input("Masukkan nilai x awal:", value="0.0")
+    x0 = np.float64(x0)
     
     # Input for error tolerance
-    e = st.text_input("Masukkan toleransi kesalahan (e):", value=0.00001)
+    e = st.text_input("Masukkan toleransi kesalahan (e):", value="0.00001")
     e = np.float64(e)
     
     hasil = st.empty()
@@ -132,11 +139,13 @@ def display_secant():
     f_x = st.text_input("Masukkan fungsi (dalam x):", "x**2 - 4")
     
     # Input for initial guesses
-    x0 = st.number_input("Masukkan nilai x0:", value=0.0)
-    x1 = st.number_input("Masukkan nilai x1:", value=5.0)
+    x0 = st.text_input("Masukkan nilai x0:", value="0.0")
+    x0 = np.float64(x0)
+    x1 = st.text_input("Masukkan nilai x1:", value="5.0")
+    x1 = np.float64(x1)
     
     # Input for error tolerance
-    e = st.text_input("Masukkan toleransi kesalahan (e):", value=0.01)
+    e = st.text_input("Masukkan toleransi kesalahan (e):", value="0.01")
     e = np.float64(e)
     
     hasil = st.empty()
