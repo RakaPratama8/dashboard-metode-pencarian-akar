@@ -89,7 +89,7 @@ def display_iterasi_sederhana():
     
     x_initial = st.text_input("Masukkan nilai x awal:", value="0.0")
     x_initial = np.float64(x_initial)
-    max_iter = st.number_input("Masukkan jumlah iterasi maksimum:", value="100")
+    max_iter = st.number_input("Masukkan jumlah iterasi maksimum:", value=100)
     e = st.text_input("Masukkan toleransi kesalahan (e):", value="0.01")
     e = np.float64(e)
     
