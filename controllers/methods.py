@@ -66,6 +66,8 @@ def biseksi(a, b, f_x, e):
         
 def regula_falsi(a, b, f_x, e):
 
+    global x
+
     a = np.float64(a)
     b = np.float64(b)
 
@@ -99,8 +101,12 @@ def regula_falsi(a, b, f_x, e):
     else:
         return c
     
-def iterasi_sederhana(x_initial, func, max_iterations=N_MAKS):
+def iterasi_sederhana(x_initial, f_x, e, max_iterations=N_MAKS):
+    
     global x
+    
+    func = lambdify(x, f_x)
+    
     x_r = np.float64(x_initial)
     for _ in range(max_iterations):
         x_r_1 = func(x_r)
@@ -119,7 +125,9 @@ def iterasi_sederhana(x_initial, func, max_iterations=N_MAKS):
     return np.inf
 
 def newton_raphson(x_initial, f_x, e):
+    
     global x
+    
     x_r = np.float64(x_initial)
 
     f_x_func = lambdify(x, f_x)
@@ -130,8 +138,6 @@ def newton_raphson(x_initial, f_x, e):
     f_x_prime = f_x_prime_func(x_r)
 
     x_r_1 = (x_r) - (f_x_val/f_x_prime)
-
-    ic(x_r_1)
 
     error = hitung_error(x_r_1, x_r)
 
@@ -160,8 +166,6 @@ def secant(x_r_min_1, x_r, f_x, e):
     y_r_1 = f_x_func(x_r_1)
 
     error = hitung_error(x_r_1, x_r)
-
-    ic(x_r)
 
     if e < error:
         return secant(
