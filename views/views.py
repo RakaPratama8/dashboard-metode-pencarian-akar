@@ -47,7 +47,7 @@ def display_bisection():
     if st.button("Hitung"):
         result, datas = methods.biseksi(a, b, func, e)
         hasil.write(f"Hasil Akar : {result}")
-        df_datas = DataFrame(datas, columns=["a", "c", "b", "f(a)", "f(c)", "f(b)"])
+        df_datas = DataFrame(datas, columns=["a", "c", "b", "f(a)", "f(c)", "f(b)", "lebar"])
         disp_datas.dataframe(df_datas, use_container_width=True)
         
 def display_regula_falsi():
@@ -68,10 +68,13 @@ def display_regula_falsi():
     e = np.float64(e)
     
     hasil = st.empty()
+    disp_datas = st.empty()
     
     if st.button("Hitung"):
-        result = methods.regula_falsi(a, b, f_x, e)
+        result, datas = methods.regula_falsi(a, b, f_x, e)
         hasil.write(f"Hasil Akar : {result}")
+        df_datas = DataFrame(datas, columns=["a", "b", "c", "f(a)", "f(b)", "f(c)", "e"])
+        disp_datas.dataframe(df_datas, use_container_width=True)
         
 def display_iterasi_sederhana():
     st.subheader("Metode Iterasi Sederhana")
@@ -130,10 +133,14 @@ def display_newton_raphson():
     e = np.float64(e)
     
     hasil = st.empty()
+    disp_datas = st.empty()
     
     if st.button("Hitung"):
-        result = methods.newton_raphson(x0, f_x, e)
+        result, datas = methods.newton_raphson(x0, f_x, e)
         hasil.write(f"Hasil Akar : {result}")
+        
+        df_datas = DataFrame(datas, columns=["x_r", "f(x)", "f'(x)", "x_r+1", "e"])
+        disp_datas.dataframe(df_datas, use_container_width=True)
 
 def display_secant():
     st.subheader("Metode Secant")
@@ -153,7 +160,11 @@ def display_secant():
     e = np.float64(e)
     
     hasil = st.empty()
+    disp_data = st.empty()
     
     if st.button("Hitung"):
-        result = methods.secant(x0, x1, f_x, e)
+        result, datas = methods.secant(x0, x1, f_x, e)
         hasil.write(f"Hasil Akar : {result}")
+        
+        df_datas = DataFrame(datas, columns=["x_r-1", "x_r", "f(x_r-1)", "f(x_r)", "x_r+1", "e"])
+        disp_data.dataframe(df_datas, use_container_width=True)

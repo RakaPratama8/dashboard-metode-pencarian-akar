@@ -38,11 +38,10 @@ def biseksi(a, b, f_x, e, datas=[]):
 
     f_c = f_x_func(c)
     
-    datas.append([a, c, b, f_a, f_c, f_b])
-    print(len(datas))
-
     if f_c * f_a < 0:
         lebar = c - a
+        
+        datas.append([a, c, b, f_a, f_c, f_b, lebar])
 
         if cek_lebar(lebar, e):
             cp_datas = datas.copy()
@@ -58,6 +57,8 @@ def biseksi(a, b, f_x, e, datas=[]):
 
     elif f_c * f_a > 0:
         lebar = b - c
+        
+        datas.append([a, c, b, f_a, f_c, f_b, lebar])
 
         if cek_lebar(lebar, e):
             cp_datas = datas.copy()
@@ -71,7 +72,7 @@ def biseksi(a, b, f_x, e, datas=[]):
             e=e
         )
         
-def regula_falsi(a, b, f_x, e):
+def regula_falsi(a, b, f_x, e, datas=[]):
 
     global x
 
@@ -87,6 +88,8 @@ def regula_falsi(a, b, f_x, e):
     f_c = f_x_func(c)
 
     error = np.abs(f_c)
+    
+    datas.append([a, c, b, f_a, f_b, f_c, error])
 
     if error > e:
 
@@ -106,7 +109,9 @@ def regula_falsi(a, b, f_x, e):
                 e=e
             )
     else:
-        return c
+        cp_datas = datas.copy()
+        datas.clear()
+        return c, cp_datas
     
 def iterasi_sederhana(x_initial, f_x, e, max_iterations=N_MAKS):
     
@@ -131,7 +136,7 @@ def iterasi_sederhana(x_initial, f_x, e, max_iterations=N_MAKS):
     print("Maximum iterations reached without convergence.")
     return np.inf
 
-def newton_raphson(x_initial, f_x, e):
+def newton_raphson(x_initial, f_x, e, datas=[]):
     
     global x
     
@@ -147,17 +152,22 @@ def newton_raphson(x_initial, f_x, e):
     x_r_1 = (x_r) - (f_x_val/f_x_prime)
 
     error = hitung_error(x_r_1, x_r)
+    
+    datas.append([x_r, f_x_val, f_x_prime, x_r_1, error])
 
     if error >= e:
         return newton_raphson(
             x_initial=x_r_1,
             f_x=f_x,
-            e=e
+            e=e,
+            datas=datas
         )
     else:
-        return x_r_1
+        cp_datas = datas.copy()
+        datas.clear()
+        return x_r_1, cp_datas
     
-def secant(x_r_min_1, x_r, f_x, e):
+def secant(x_r_min_1, x_r, f_x, e, datas=[]):
 
     global x
     
@@ -170,9 +180,11 @@ def secant(x_r_min_1, x_r, f_x, e):
 
     x_r_1 = x_r - (y_r*(x_r-x_r_min_1))/(y_r-y_r_min_1)
 
-    y_r_1 = f_x_func(x_r_1)
+    # y_r_1 = f_x_func(x_r_1)
 
     error = hitung_error(x_r_1, x_r)
+    
+    datas.append([x_r_min_1, x_r, y_r_min_1, y_r, x_r_1, error])
 
     if e < error:
         return secant(
@@ -182,4 +194,6 @@ def secant(x_r_min_1, x_r, f_x, e):
             e=e
         )
     else:
-        return x_r
+        cp_datas = datas.copy()
+        datas.clear()
+        return x_r, cp_datas
