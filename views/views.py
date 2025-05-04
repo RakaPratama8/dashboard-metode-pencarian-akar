@@ -1,7 +1,9 @@
 import streamlit as st
 import controllers.methods as methods
-from sympy import sympify
 import numpy as np
+
+from sympy import sympify
+from pandas import DataFrame
 
 def display_home():
     st.write("""
@@ -40,10 +42,13 @@ def display_bisection():
     e = np.float64(e)
     
     hasil = st.empty()
+    disp_datas = st.empty()
     
     if st.button("Hitung"):
-        result = methods.biseksi(a, b, func, e)
+        result, datas = methods.biseksi(a, b, func, e)
         hasil.write(f"Hasil Akar : {result}")
+        df_datas = DataFrame(datas, columns=["a", "c", "b", "f(a)", "f(c)", "f(b)"])
+        disp_datas.dataframe(df_datas, use_container_width=True)
         
 def display_regula_falsi():
     st.subheader("Metode Regula Falsi")

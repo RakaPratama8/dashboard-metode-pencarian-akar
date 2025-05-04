@@ -18,7 +18,7 @@ def hitung_c(a, b, f_a, f_b) -> np.float64:
 def hitung_error(x_r_1, x_r):
     return np.abs(x_r_1 - x_r)
 
-def biseksi(a, b, f_x, e):
+def biseksi(a, b, f_x, e, datas=[]):
     
     global x
     
@@ -32,17 +32,22 @@ def biseksi(a, b, f_x, e):
     f_b = f_x_func(b)
 
     if (f_a * f_b) > 0:
-        return np.float64(0)
+        return np.float64(0), datas
 
     c = (a+b)/2
 
     f_c = f_x_func(c)
+    
+    datas.append([a, c, b, f_a, f_c, f_b])
+    print(len(datas))
 
     if f_c * f_a < 0:
         lebar = c - a
 
         if cek_lebar(lebar, e):
-            return c
+            cp_datas = datas.copy()
+            datas.clear()
+            return c, cp_datas
 
         return biseksi(
             a=a,
@@ -55,7 +60,9 @@ def biseksi(a, b, f_x, e):
         lebar = b - c
 
         if cek_lebar(lebar, e):
-            return c
+            cp_datas = datas.copy()
+            datas.clear()
+            return c, cp_datas
 
         return biseksi(
             a=c,
