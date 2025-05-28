@@ -16,13 +16,13 @@ with st.sidebar:
     st.title("Menu")
     SELECTION = st.selectbox(
         "Pilih Metode",
-        ("Homepage", "Bisection", "Regula Falsi", "Iterasi Sederhana", "Newton Raphson", "Secant")
+        ("Homepage", "Bagi Dua", "Regula Falsi", "Iterasi Sederhana", "Newton Raphson", "Secant")
     )
 
 with st.container():
     if SELECTION == "Homepage":
         views.display_home()
-    elif SELECTION == "Bisection":
+    elif SELECTION == "Bagi Dua":
         views.display_bisection()
     elif SELECTION == "Regula Falsi":
         views.display_regula_falsi()

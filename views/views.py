@@ -16,7 +16,7 @@ def display_home():
     st.markdown(
         """
         ### Metode yang Tersedia:
-        - Bisection
+        - Bagi Dua
         - Regula Falsi
         - Iterasi Sederhana
         - Newton Raphson
@@ -25,8 +25,8 @@ def display_home():
     )
 
 def display_bisection():
-    st.subheader("Metode Bisection")
-    st.write("Metode Bisection adalah metode numerik untuk mencari akar dari fungsi dengan cara membagi interval menjadi dua bagian dan memilih bagian yang mengandung akar.")
+    st.subheader("Metode Bagi Dua")
+    st.write("Metode Bagi Dua adalah metode numerik untuk mencari akar dari fungsi dengan cara membagi interval menjadi dua bagian dan memilih bagian yang mengandung akar.")
     
     # Input for function
     func = st.text_input("Masukkan fungsi (dalam x):", "x**2 - 4")
