@@ -11,8 +11,6 @@ def display_home():
             Dashboard ini dibuat oleh Kelompok 1 untuk memenuhi tugas mata kuliah Rekayasa Komputasional
             """)
     
-    # st.image("/assets/homepage-photo.jpg", caption="Metode Mencari Akar", use_container_width=True)
-    
     st.markdown(
         """
         ### Metode yang Tersedia:
