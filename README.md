@@ -20,7 +20,7 @@ Izinkan kami memperkenalkan anggota kelompok kami:
 2. **Muhammad Bintang Alifiansyah** (NPM: 51422001\)  
 3. **Muhammad Bukhori** (NPM: 51422002\)  
 4. **Bahrul Ilmi Surachman** (NPM: \-)  
-5. **Muhammad Azhar Iskandar** (NPM: \-)
+5. **Muhammad Azhar Iskandar** (NPM: 50422937\)
 
 ## **Metode yang Digunakan**
 

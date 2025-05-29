@@ -6,23 +6,98 @@ from sympy import sympify
 from pandas import DataFrame
 
 def display_home():
-    st.write("""
-            Selamat datang di dashboard metode mencari akar. Pilih metode yang ingin Anda gunakan dari menu di sebelah kiri.
-            Dashboard ini dibuat oleh Kelompok 1 untuk memenuhi tugas mata kuliah Rekayasa Komputasional
-            """)
-    
-    # st.image("/assets/homepage-photo.jpg", caption="Metode Mencari Akar", use_container_width=True)
-    
+    # Judul Utama Aplikasi
+    st.markdown("---")
+
+    # Pendahuluan dan Deskripsi Dashboard
     st.markdown(
         """
-        ### Metode yang Tersedia:
-        - Bagi Dua
-        - Regula Falsi
-        - Iterasi Sederhana
-        - Newton Raphson
-        - Secant
+        Selamat datang di **Dashboard Interaktif Metode Pencarian Akar**!
+
+        Dashboard ini dirancang untuk membantu Anda memahami, memvisualisasikan, dan membandingkan 
+        berbagai metode numerik yang umum digunakan untuk menemukan akar dari suatu fungsi matematika. 
+        Anda dapat memasukkan fungsi Anda sendiri, mengatur parameter awal, dan melihat bagaimana setiap 
+        metode bekerja langkah demi langkah.
+
+        Proyek ini merupakan bagian dari pemenuhan tugas akhir mata kuliah **Rekayasa Komputasional** (Semester 6) 
+        di Jurusan Informatika, Fakultas Teknologi Industri, Universitas Gunadarma.
         """
     )
+    st.markdown("---")
+
+    # Informasi Tim Pengembang (dapat dibuat lebih ringkas dengan expander)
+    with st.expander("🎓 Tim Pengembang (Kelompok 1 Rekayasa Komputasional)", expanded=False):
+        st.markdown(
+            """
+            Dashboard ini dikembangkan oleh:
+            * **Muhamad Raka Pratama** (NPM: `50422956`)
+            * **Muhammad Bintang Alifiansyah** (NPM: `51422001`)
+            * **Muhammad Bukhori** (NPM: `51422002`)
+            * **Bahrul Ilmi Surachman** (NPM: `-`)
+            * **Muhammad Azhar Iskandar** (NPM: `50422937`)
+            """
+        )
+    
+    st.markdown("---")
+
+    # Deskripsi Metode yang Digunakan
+    st.header("🔍 Metode Pencarian Akar yang Diimplementasikan")
+    st.markdown(
+        """
+        Dalam dashboard ini, Anda akan menemukan implementasi dari beberapa metode pencarian akar fundamental, 
+        yang dikelompokkan menjadi dua kategori utama:
+        """
+    )
+
+    # Menggunakan kolom untuk tampilan yang lebih rapi
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.subheader("Metode Tertutup")
+        st.markdown(
+            """
+            Metode dalam kategori ini memerlukan interval awal $[a, b]$ yang dipastikan mengapit akar (yaitu, $f(a)$ dan $f(b)$ memiliki tanda yang berlawanan). Metode ini umumnya konvergen secara pasti menuju akar.
+            - **Metode Bagi Dua (Bisection Method)**
+            - **Metode Regula Falsi (False Position Method)**
+            """
+        )
+
+    with col2:
+        st.subheader("Metode Terbuka")
+        st.markdown(
+            """
+            Metode dalam kategori ini biasanya menggunakan satu atau dua tebakan awal, tetapi tidak mensyaratkan tebakan tersebut mengapit akar. Metode ini bisa konvergen lebih cepat, namun konvergensinya tidak selalu dijamin.
+            - **Metode Newton-Raphson**
+            - **Metode Secant**
+            """
+        )
+    
+    st.markdown("---")
+
+    # Petunjuk Penggunaan Dashboard
+    st.info(
+        """
+        💡 **Panduan Penggunaan:**
+        Untuk memulai, silakan pilih salah satu metode numerik dari menu _sidebar_ di sebelah kiri. 
+        Anda kemudian dapat memasukkan fungsi matematika, parameter awal yang diperlukan, dan toleransi kesalahan 
+        untuk melihat proses iterasi, hasil akar yang ditemukan, serta visualisasi grafisnya.
+        """,
+        icon="ℹ️"
+    )
+    
+    st.markdown("---")
+    
+    # Tautan Tambahan (misalnya ke repositori GitHub jika ada, atau tautan dashboard yang sudah di-deploy)
+    st.subheader("🔗 Tautan Terkait")
+    link_dashboard = "https://github.com/RakaPratama8/dashboard-metode-pencarian-akar" 
+    st.markdown(f"Anda dapat mengakses repository github kami di : [RakaPratama8/dashboard-metode-pencarian-akar]({link_dashboard})")
+    # Jika Anda memiliki repositori GitHub publik:
+    # st.markdown("Lihat kode sumber proyek ini di [GitHub](URL_GITHUB_ANDA)")
+
+    st.markdown("<br><hr><br>", unsafe_allow_html=True) # Sedikit spasi dan garis di bagian bawah
+    st.caption("© 2024 - Proyek Rekayasa Komputasional | Jurusan Informatika | Universitas Gunadarma")
+
+
 
 def display_bisection():
     st.subheader("Metode Bagi Dua")

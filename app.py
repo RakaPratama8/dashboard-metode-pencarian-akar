@@ -10,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.title("Dashboard Metode Mencari Akar")
+st.title("📊 Dashboard Metode Mencari Akar")
 
 with st.sidebar:
     st.title("Menu")
