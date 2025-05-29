@@ -19,7 +19,7 @@ Izinkan kami memperkenalkan anggota kelompok kami:
 1. **Muhamad Raka Pratama** (NPM: 50422956\)  
 2. **Muhammad Bintang Alifiansyah** (NPM: 51422001\)  
 3. **Muhammad Bukhori** (NPM: 51422002\)  
-4. **Bahrul Ilmi Surachman** (NPM: \-)  
+4. **Bahrul Ilmi Surachman** (NPM: 50422318\)  
 5. **Muhammad Azhar Iskandar** (NPM: 50422937\)
 
 ## **Metode yang Digunakan**

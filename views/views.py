@@ -33,7 +33,7 @@ def display_home():
             * **Muhamad Raka Pratama** (NPM: `50422956`)
             * **Muhammad Bintang Alifiansyah** (NPM: `51422001`)
             * **Muhammad Bukhori** (NPM: `51422002`)
-            * **Bahrul Ilmi Surachman** (NPM: `-`)
+            * **Bahrul Ilmi Surachman** (NPM: `50422318`)
             * **Muhammad Azhar Iskandar** (NPM: `50422937`)
             """
         )
@@ -148,7 +148,7 @@ def display_regula_falsi():
     if st.button("Hitung"):
         result, datas = methods.regula_falsi(a, b, f_x, e)
         hasil.write(f"Hasil Akar : {result}")
-        df_datas = DataFrame(datas, columns=["a", "b", "c", "f(a)", "f(b)", "f(c)", "e"])
+        df_datas = DataFrame(datas, columns=["a", "c", "b", "f(a)", "f(b)", "f(c)", "e"])
         disp_datas.dataframe(df_datas, use_container_width=True)
         
 def display_iterasi_sederhana():
