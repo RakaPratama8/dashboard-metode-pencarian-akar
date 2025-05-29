@@ -4,9 +4,9 @@ Proyek ini merupakan implementasi berbagai metode pencarian akar fungsi sebagai 
 
 **Daftar Isi:**
 
-* [Pendahuluan](#bookmark=id.92xj3dz22mt1)  
-* [Metode yang Digunakan](#bookmark=id.1xeo7uv6w18g)  
-* [Tentang Dashboard](#bookmark=id.aev02fdxlqu1)
+* [Pendahuluan](#pendahuluan)  
+* [Metode yang Digunakan](#metode-yang-digunakan)  
+* [Tentang Dashboard](#tentang-dashboard)
 
 ## **Pendahuluan**
 
