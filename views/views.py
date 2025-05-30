@@ -222,7 +222,7 @@ def display_secant():
     st.write("Metode Secant adalah metode numerik untuk mencari akar dari fungsi dengan cara menggunakan dua titik pada grafik fungsi.")
     
     # Input for function
-    f_x = st.text_input("Masukkan fungsi (dalam x):", "x**2 - 4")
+    f_x = st.text_input("Masukkan fungsi (dalam x):", "x - exp(-x)")
     
     # Input for initial guesses
     x0 = st.text_input("Masukkan nilai x0:", value="0.0")
