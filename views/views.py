@@ -1,9 +1,30 @@
 import streamlit as st
 import controllers.methods as methods
 import numpy as np
+import matplotlib.pyplot as plt
 
 from sympy import sympify
 from pandas import DataFrame
+
+def display_stats(datas):
+    a, c, b, f_a, f_c, f_b, lebar = datas[-1]
+
+    fig, ax = plt.subplots()
+
+    ax.plot([a, c, b], [f_a, f_c, f_b], 'ro')
+    
+    ax.plot([a, b], [f_a, f_b], linestyle='-', color='green')
+    
+    plt.annotate(f"({c:.3f}, {f_c:.3f})", xy=(c, f_c))
+
+    ax.axvline(x=a, color='blue', label='batas bawah')
+    ax.axvline(x=b, color='blue', label='batas atas')
+    ax.axvline(x=c, color='red', linestyle='--', label='nilai akar')
+
+    ax.grid(True)
+    ax.legend()
+
+    return fig
 
 def display_home():
     # Judul Utama Aplikasi
@@ -97,8 +118,6 @@ def display_home():
     st.markdown("<br><hr><br>", unsafe_allow_html=True) # Sedikit spasi dan garis di bagian bawah
     st.caption("© 2024 - Proyek Rekayasa Komputasional | Jurusan Informatika | Universitas Gunadarma")
 
-
-
 def display_bisection():
     st.subheader("Metode Bagi Dua")
     st.write("Metode Bagi Dua adalah metode numerik untuk mencari akar dari fungsi dengan cara membagi interval menjadi dua bagian dan memilih bagian yang mengandung akar.")
@@ -124,6 +143,7 @@ def display_bisection():
         hasil.write(f"Hasil Akar : {result}")
         df_datas = DataFrame(datas, columns=["a", "c", "b", "f(a)", "f(c)", "f(b)", "lebar"])
         disp_datas.dataframe(df_datas, use_container_width=True)
+        st.pyplot(display_stats(datas))
         
 def display_regula_falsi():
     st.subheader("Metode Regula Falsi")
