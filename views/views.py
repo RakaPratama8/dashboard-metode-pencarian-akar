@@ -95,7 +95,7 @@ def display_home():
     # st.markdown("Lihat kode sumber proyek ini di [GitHub](URL_GITHUB_ANDA)")
 
     st.markdown("<br><hr><br>", unsafe_allow_html=True) # Sedikit spasi dan garis di bagian bawah
-    st.caption("© 2024 - Proyek Rekayasa Komputasional | Jurusan Informatika | Universitas Gunadarma")
+    st.caption("© 2025 - Proyek Rekayasa Komputasional | Jurusan Informatika | Universitas Gunadarma")
 
 
 
