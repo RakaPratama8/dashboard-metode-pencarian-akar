@@ -26,14 +26,13 @@ def display_home():
     st.markdown("---")
 
     # Informasi Tim Pengembang (dapat dibuat lebih ringkas dengan expander)
-    with st.expander("🎓 Tim Pengembang (Kelompok 1 Rekayasa Komputasional)", expanded=False):
+    with st.expander("🎓 Tim Pengembang Website)", expanded=False):
         st.markdown(
             """
             Dashboard ini dikembangkan oleh:
             * **Muhamad Raka Pratama** (NPM: `50422956`)
             * **Muhammad Bintang Alifiansyah** (NPM: `51422001`)
             * **Muhammad Bukhori** (NPM: `51422002`)
-            * **Bahrul Ilmi Surachman** (NPM: `50422318`)
             * **Muhammad Azhar Iskandar** (NPM: `50422937`)
             """
         )
@@ -96,8 +95,6 @@ def display_home():
 
     st.markdown("<br><hr><br>", unsafe_allow_html=True) # Sedikit spasi dan garis di bagian bawah
     st.caption("© 2025 - Proyek Rekayasa Komputasional | Jurusan Informatika | Universitas Gunadarma")
-
-
 
 def display_bisection():
     st.subheader("Metode Bagi Dua")
