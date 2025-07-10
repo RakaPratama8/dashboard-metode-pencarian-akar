@@ -19,7 +19,7 @@ def display_home():
         Anda dapat memasukkan fungsi Anda sendiri, mengatur parameter awal, dan melihat bagaimana setiap 
         metode bekerja langkah demi langkah.
 
-        Proyek ini merupakan bagian dari pemenuhan tugas akhir mata kuliah **Rekayasa Komputasional** (Semester 6) 
+        Proyek ini merupakan bagian dari pemenuhan tugas akhir mata kuliah **Rekayasa Perangkat Lunak** (Semester 6) 
         di Jurusan Informatika, Fakultas Teknologi Industri, Universitas Gunadarma.
         """
     )
@@ -94,7 +94,7 @@ def display_home():
     # st.markdown("Lihat kode sumber proyek ini di [GitHub](URL_GITHUB_ANDA)")
 
     st.markdown("<br><hr><br>", unsafe_allow_html=True) # Sedikit spasi dan garis di bagian bawah
-    st.caption("© 2025 - Proyek Rekayasa Komputasional | Jurusan Informatika | Universitas Gunadarma")
+    st.caption("© 2025 - Proyek Rekayasa Perangkat Lunak | Jurusan Informatika | Universitas Gunadarma")
 
 def display_bisection():
     st.subheader("Metode Bagi Dua")
